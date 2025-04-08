@@ -1,0 +1,107 @@
+<head>
+
+    <meta charset="utf-8"  />
+    
+    <title>Slumber Sadness</title>
+    
+    <style>
+    html {
+    width: 100%;
+    height: 180%;
+    }
+    
+    body {
+    margins: 1rem;
+    background-color: black;
+    background: url("https://i.ibb.co/NdMbT3Q3/icegif-11.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: whitesmoke;
+    font-size: 5rem;
+    overflow: hidden;
+    /*transition-property: transform;
+    transition-duration: 3s; */
+    }
+    
+ 
+
+    .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320, 1fr));
+    }
+    
+    .last {
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgb(220, 200, 180);
+    margin: 15% 4rem 0 4rem;
+    }
+
+body {
+transition-property: transform;
+transition-duration: 3s;
+}
+    </style>
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <div>The</div>
+            <div>sky</div>
+            <div class="last">is</div>
+            <div>crying</div>
+            <div>as</div>
+            <div>I</div>
+            <div>wake</div>
+            <div class="last">up</div>
+            <div>of</div>
+            <div>my</div>
+            <div class="last">slumber</div>
+    </div>
+    
+    <script>
+//   module 6.3
+        //document.body.style.transform = `rotate(90 deg)`;
+    
+        function randomNumber (min, max){
+            return (Math.random() * (max-min)) + min;
+        }
+
+//define divs variable
+let divs = document.querySelectorAll(".grid-container div");
+
+function randomize() {
+//apply only to each of the div tags
+divs.forEach(function (div) {
+    let scale = randomNumber(.5,1.2);
+    let translateX = randomNumber(0, 20);
+    let translateY = randomNumber(0, 50);
+    let rotate = randomNumber(0,360);
+
+    //half of the time do this...
+    if (Math.random() > .5) {
+        scale = 1; //doesnt affect scale
+        let translateX = randomNumber(0,80);
+        let translateY = randomNumber(0, 80);
+    
+    }
+
+    div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
+});
+}
+
+document.addEventListener("click", randomize);
+
+/*let rotation = 10;
+    document.addEventListener("click", function () {
+    let min 10;
+    let max = 40;
+    rotation += Math.random() * (max min) + min;
+   document.body.style.transform= rotate($(rotation)deg)': rotate($(rotation)deg);
+    });*/
+    
+    </script>
+    </body>
+    </html>
